@@ -1,0 +1,160 @@
+.nav-main__list {
+    display: flex;
+    gap: 0.5rem;
+    text-align: center;
+    width: 100%;
+}
+    
+.nav-main__link {
+    padding-top: 10px;
+    color: rgb(0, 0, 0);
+    position: relative;
+    text-decoration: none;
+}
+    
+.nav-main__link:hover {
+    color: #0f1c27;
+}
+
+.nav-main {
+  background: rgba(255, 255, 255, 0);
+}
+
+.nav-small {
+    display: none;
+    gap: 2rem;
+    text-align: center;
+}
+
+.nav-small__menu {
+  padding-top: 10px;
+  position: relative;
+  text-decoration: none;
+}
+
+    
+@media (max-width: 70em) {
+    .nav-main {
+        display: none;
+    }
+
+    .nav-small {
+        display: flex;
+        gap: 2rem;
+        text-align: center;      
+        justify-content: center;
+        align-content: center;
+    }
+
+    .nav-small .txt {
+          
+      display: flex;
+      gap: 2rem;
+      text-align: center;      
+      justify-content: center;
+      align-content: center;
+    }
+}
+    
+@media only screen and (min-width: 70em) {
+    .nav-main {
+        padding-top: 3rem;
+        display: flex;
+        padding-left: 3em;
+        padding-right: 3em;
+    }
+
+    .nav-small {
+      padding-top: 3rem;
+      display: none;
+      padding-left: 3em;
+      padding-right: 3em;
+    }
+}
+
+.register {
+  justify-content: right;
+}
+
+ul {
+  padding-left:0;
+  padding-right:0;
+}
+
+.nav-main img {
+  width: 100%;
+  justify-content: center;
+}
+
+.nav-main__link .github {
+  width: 100%;
+
+}
+
+.example-spacer {
+  flex: 1;
+}
+
+.typewriter h1 {
+  overflow: hidden; 
+  border-right: .15em solid rgb(0, 0, 0);
+  white-space: nowrap; 
+  margin: 0 auto; 
+  letter-spacing: .05em; 
+  animation: 
+    typing 1.5s steps(20, end),
+    blink-caret 1.75s step-end infinite;
+}
+
+.typewriter h2 {
+  overflow: hidden; 
+  border-right: .15em solid rgb(0, 0, 0);
+  white-space: nowrap;
+  margin: auto;
+  padding-top: 17px;
+  letter-spacing: .05em; 
+  animation: 
+    typing 1.5s steps(20, end),
+    blink-caret 1.75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: rgb(0, 0, 0); }
+}
+
+.wr {
+  display: flex;
+  justify-content: center;
+}
+
+.hover-underline-animation {
+  color: rgb(0, 0, 0);
+  padding-bottom: 0.5em;
+  position: relative;
+}
+
+.hover-underline-animation:after {
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  background: rgb(0, 0, 0);
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+
+.hover-underline-animation:hover:after {
+  width: 100%; 
+  left: 0;
+}

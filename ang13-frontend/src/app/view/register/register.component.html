@@ -1,0 +1,57 @@
+<body>
+    <div class="bg-gray-100 mx-auto max-w-6xl bg-white py-20 px-12 lg:px-24 shadow-xl mb-24">
+        <h1>Sign Up for Free, below:</h1>
+      <form (ngSubmit)="OnSubmit()"
+      name="form"
+      #f="ngForm"
+      novalidate>
+        <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
+            <div class="-mx-3 md:flex mb-2">
+                <div class="md:w-1/2 px-3 mb-6 md:mb-0">
+                    <mat-form-field appearance="fill" class="w-100">
+                        <mat-label>Email</mat-label>
+                        <input matInput
+                        placeholder="username"
+                        [(ngModel)]="form.username"
+                        #username="ngModel"
+                        name="username"
+                        required>
+                        <mat-icon matSuffix>mail</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="md:w-1/2 px-3">
+                    <mat-form-field appearance="fill" class="w-100">
+                        <mat-label>Password</mat-label>
+                        <input matInput
+                        placeholder="********"
+                        [(ngModel)]="form.password"
+                        [type]="hide ? 'password' : 'text'" 
+                        #password="ngModel"
+                        name="password"
+                        required>
+                        <mat-icon matSuffix>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="md:w-1/2 px-3" *ngIf="isAdmin">
+                    <mat-form-field appearance="fill" class="w-100">
+                        <mat-label>Account Type</mat-label>
+                        <mat-select [(ngModel)]="form.userType" name="userType" #type="ngModel" required>
+                            <mat-option disabled>Choose user type</mat-option>
+                            <mat-option *ngFor="let order of userTypes; let i = index" [value]="userTypes[i]">
+                              {{userTypes[i]}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+              </div>
+          <div class="-mx-3 md:flex mt-2">
+            <div class="md:w-full px-3" style="display: flex; justify-content: center;">
+              <button  matButton matRipple class="w-50 bg-green-500 text-white font-bold py-2 px-4 border-b-4 hover:border-b-2 border-green-700 hover:border-gray-100 rounded-full">
+                Register
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+</body>

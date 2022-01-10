@@ -1,0 +1,33 @@
+<div class="outer">
+    <div class="wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th [style.display]="'none'">Appointment Ids</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Session Times</th>
+                    <th scope="col">Appointment Type</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone Number</th>
+                    <th scope="col">Comments</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let appointment of appointments">
+                    <td scope="row"[style.display]="'none'">{{ appointment.AppointmentId}}</td>
+                    <td data-label="Date" class="px-1 py-1">{{ appointment.AppointmentDate | date:'dd-MM-yyyy'}}</td>
+                    <td data-label="Start" class="px-1">{{ appointment.Session.StartTime }} - {{appointment.Session.EndTime}}</td>
+                    <td data-label="Type" class="px-1">{{ appointment.AppointmentType }}</td>
+                    <td data-label="First Name" class="px-1">{{ appointment.User.FirstName }}</td>
+                    <td data-label="Last Name" class="px-1">{{ appointment.User.LastName }}</td>
+                    <td data-label="Email" class="px-1">{{ appointment.User.Email }}</td>
+                    <td data-label="Phone Number" class="px-1">{{ appointment.User.PhoneNumber }}</td>
+                    <td data-label="Comment" (click)="OpenDialog(appointment)" *ngIf="appointment.Comments" id="comments">{{ appointment.Comments }}</td>
+                    <td data-label="Comment" (click)="OpenDialog(appointment)" *ngIf="!(appointment.Comments)" id="commentPlaceHolder"><i>click to insert comments</i></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

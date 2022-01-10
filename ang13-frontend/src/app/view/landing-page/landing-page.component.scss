@@ -1,0 +1,350 @@
+ul[role="list"],
+  ol[role="list"] {
+    list-style: none;
+  }
+  
+  a:not([class]) {
+    text-decoration-skip-ink: auto;
+  }
+
+  article {
+      border: solid 1px black;
+  }
+
+  .name {
+      color: black;
+  }
+  
+  /* utilities */
+  .flex {
+    display: flex;
+    gap: var(--gap, 1rem);
+  }
+  
+  .flow > *:where(:not(:first-child)) {
+    margin-top: var(--flow-spacer, 1em);
+  }
+  
+  .bg-primary-400 {
+    background: hsl(var(263 55% 52%));
+  }
+  .bg-secondary-400 {
+    background: hsl(var(217 19% 35%));
+  }
+  .bg-secondary-500 {
+    background: hsl(var(219 29% 14%));
+  }
+  
+  .bg-neutral-100 {
+    background: hsl(var( 0 0% 100%));
+  }
+  
+  .text-neutral-100 {
+    color: hsl(var( 0 0% 100%));
+  }
+  .text-secondary-400 {
+    color: hsl(var(217 19% 35%));
+  }
+  .border-primary-400 {
+    border: 2px solid #a775f1;
+  }
+  
+  /* components */
+  .testimonial-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-auto-columns: 1fr;
+    grid-template-areas:
+     'one'
+     'two'
+     'three'
+     'four'
+     'five';
+  
+    padding-block: 2rem;
+    width: min(95%, 70rem);
+    margin-inline: auto;
+  }
+  
+  .testimonial {
+    font-size: var(0.8125rem);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 2.5rem 3.75rem 3rem -3rem hsl(var(217 19% 35%) / 0.25);
+  }
+  
+  .testimonial:nth-child(1) {
+    grid-area: one;
+  }
+  .testimonial:nth-child(2) {
+    grid-area: two;
+  }
+  .testimonial:nth-child(3) {
+    grid-area: three;
+  }
+  .testimonial:nth-child(4) {
+    grid-area: four;
+  }
+  .testimonial:nth-child(5) {
+    grid-area: five;
+  }
+  
+  @media screen and (min-width: 33em) {
+    .testimonial-grid {
+        grid-template-areas:
+        "one one"
+        "two three"
+        "five five"
+        "four four";
+    }
+  }
+  
+  @media screen and (min-width: 38em) {
+    .testimonial-grid {
+      grid-template-areas:
+       'one one'
+       'two five'
+       'three five'
+       'four four';
+    }
+  }
+  
+  @media screen and (min-width: 54em) {
+    .testimonial-grid {
+        grid-template-areas:
+        "one one two"
+        "five five five"
+        "three four four";
+    }
+  }
+  
+  @media screen and (min-width: 75em) {
+    .testimonial-grid {
+        grid-template-areas:
+        "one one two five"
+        "three four four five";
+    }
+  }
+  
+  
+  .testimonial.quote {
+    background-repeat: no-repeat;
+    background-position: top right 10%;
+  }
+  
+  .testimonial .name {
+    font-size: var(0.8125rem);
+    font-weight: var(500);
+    line-height: 1;
+  }
+  
+  .testimonial .position {
+    font-size: var(0.6875rem);
+    opacity: 0.5;
+  }
+  
+  .testimonial > p:first-of-type {
+    font-size: var(1.25rem);
+    line-height: 1.2;
+  }
+  
+  .testimonial > p:last-of-type {
+    opacity: 0.7;
+  }
+  
+  *{margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+p{color:hsl(0, 0%, 0%);}
+ul{list-style-type: none;}
+
+
+.btn, button {padding:10px 20px;
+    background-color:#3392ff;
+    border-radius:20px;
+    color:#fff;
+    font-weight:bold;
+    border:none;
+}
+
+.btn:hover{background-color:#499eff;
+    cursor:pointer;
+}
+
+.flex-container{display:flex;}
+
+.landing{
+    padding:70px 0;
+    width:100%;
+    max-width:1200px;
+    margin:0 auto;
+}
+
+.content-wrapper{position:relative;
+    width:50%;
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    padding: 10px;
+}
+
+.content-container{
+    width:100%;
+}
+
+.illustration-container{width:100%;}
+.illustration{transform:translateX(20%);}
+
+.form-wrapper{width:100%;
+    position:relative;
+    background-color:lightgrey;
+    margin-top:70px;
+    padding:10px;
+}
+
+form{width:100%;
+    display:flex;
+}
+.form-input{padding:15px;
+    border-radius:5px;
+    flex:1;
+    font-size:18px;
+    border:none;
+    margin-right:20px;
+    
+
+}
+.form-input:focus{outline:none;}
+
+.error {margin-top:10px;
+    color:red;
+    display:none;
+}
+
+.form-output-container{width:100%;
+    max-width:1200px;
+    margin:0 auto;
+    margin-top:-50px;
+}
+
+.output {width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 20px;
+    margin-top:10px;
+    background-color:white;
+    border-radius:5px;
+}
+
+
+.original-link{flex:1;}
+.short-link {color:hsl(180, 66%, 49%);
+    margin:0 15px;
+}
+.statistics{background-color:rgb(255, 255, 255);
+    padding-top:100px;
+}
+
+.section-title, .stats-description{text-align:center;
+    width:100%;
+    max-width:460px;
+    margin:0 auto;
+}
+
+
+.stats-description {margin-top:15px;}
+
+.card-container {width:100%;
+    max-width:1150px;    
+    margin:0 auto;
+    padding:100px 0;
+    padding-bottom:200px;
+}
+
+.card{padding:30px;
+    padding-top:50px;
+    background-color:#fff;
+    margin:15px;
+    border-radius:5px;
+    position:relative;
+}
+
+.card:nth-child(2){transform:translateY(40px);}
+.card:nth-child(3){transform:translateY(80px);}
+.card-title{margin:10px 0;
+}
+
+.card-icon{
+    border-radius:50%;
+    width:70px;
+    height:70px;
+    background-color:hsl(0, 0%, 72%);
+    position:absolute;
+    top:-35px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    
+}
+
+.cta-title{margin-bottom:25px;
+    color:#fff;
+}
+/* media queries */
+
+@media(max-width:992px){
+    .main-title{font-size:3em;}
+    .illustration{transform:translate(0%);}
+
+}
+
+@media(max-width:768px){
+
+    .illustration-container, .illustration{width:100%;}
+    .content-wrapper{width: 100%;
+        padding: 10px;
+    }
+    .content-container{width: 100%;
+        
+        text-align:center;
+    }
+    .main-title{font-size:2em;
+        margin-top:30px;
+    }
+    .description{margin-top:30px;
+        padding:10px;
+    }
+    .illustration{transform: translateX(10%);}
+
+    .output{flex-direction: column;}
+
+    .original-link{margin:30px 0;}
+    .short-link{padding:10px 0;
+        margin:10px 0;
+        width: 100%;
+        border-top:1px solid hsl(257, 7%, 63%);
+    }
+    .output-btn{padding:20px 60px;
+        width: 100%;
+    }
+    .card-container {flex-direction: column;
+        align-items:center;
+    }
+
+    .card{max-width: 400px;}
+
+}   
+
+
+@media(max-width:576px){
+
+
+    .illustration{transform:translate(-8%)scale(0.8);}
+    .form-container{ padding:20px;}
+    form{flex-direction: column;}
+    .form-input{margin:10px 0;}
+    .cta-title{font-size:1.5em;}
+}

@@ -1,0 +1,74 @@
+.padding-card {
+    padding: 10rem;
+    padding-bottom: 25rem;
+}
+
+a {
+    color: black;
+}
+
+
+.animated-border-quote {
+    display:inline-block;
+    margin:1em;
+    overflow:hidden;
+    mat-accordion {
+      background-color:#fff;
+      border: solid 2px #0044ff;
+      display: inline-block;
+      margin: 0;
+      padding: 1em;
+      position: relative;
+      &:before {
+        animation:clockwise 30s infinite linear;
+        background-color: #fff;
+        bottom:10%;
+        content: "";
+        left: 0;
+        opacity:.5;
+        position: absolute;
+        right: 0;
+        top:10%;
+      }
+      &:after {
+        animation:counter 30s infinite linear;
+        background-color: #fff;
+        bottom:10%;
+        content: "";
+        left: 0;
+        opacity:.5;
+        position: absolute;
+        right: 0;
+        top:10%;
+      }
+      mat-expansion-panel {
+        display: block;
+        text-align: right;
+        &:before {
+          content: "- ";
+        }
+      }
+      > * {
+        position: relative;
+        z-index: 1;
+      }
+    }
+}
+
+@keyframes clockwise {
+    0% {
+    transform:rotate(0);
+    }
+    100% {
+    transform:rotate(360deg);
+    }
+}
+
+@keyframes counter {
+    0% {
+    transform:rotate(0);
+    }
+    100% {
+    transform:rotate(-360deg);
+    }
+}

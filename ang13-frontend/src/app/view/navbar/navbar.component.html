@@ -1,0 +1,58 @@
+<nav class="nav-main">
+    <ul class="nav-main__list buttons">
+        <button mat-button class="nav-main__link" [matMenuTriggerFor]="menu" style="color:rgb(0, 0, 0);"><a class="hover-underline-animation" style="text-decoration: none;">General</a></button>
+            <mat-menu #menu='matMenu'>
+                <button mat-menu-item [routerLink]='["/book-appointment"]' *ngIf="isLoggedIn">Book Appointment</button>
+                <button mat-menu-item [routerLink]='["/view-appointments"]' *ngIf="isStaff">View Appointments</button>
+                <button mat-menu-item [routerLink]='["/register"]' *ngIf="isAdmin">Create Staff Account</button>
+                <button mat-menu-item [routerLink]="['/faq']">FAQ</button>
+                <button mat-menu-item [routerLink]="['/about']">About</button>
+            </mat-menu>
+    </ul> 
+    
+    <a href="https://github.com/Twotimefun">
+      <img class="gh_ic" src="/assets/github-icon.svg" style="max-height: 40px;">
+      <div class="wr">
+        <div class="txt typewriter hover-underline-animation" style="text-align: center; ">
+          <h1>
+            <a href="https://github.com/Twotimefun" style="text-decoration: underline; color: black;">
+              &#60;Twotimefun&#62;
+            </a>
+          </h1>
+        </div>
+      </div>
+    </a>
+    
+
+    <ul class="nav-main__list register">
+      <button mat-button class="nav-main__link home" [routerLink]='["/landing-page"]'><a class="hover-underline-animation" style="text-decoration: none;">Home</a></button>
+      <button mat-button class="nav-main__link login" [routerLink]='["/login"]' *ngIf="!isLoggedIn"><a class="hover-underline-animation" style="text-decoration: none;">Login</a></button>
+      <button mat-button class="nav-main__link sign-up" [routerLink]='["/register"]' *ngIf="!isLoggedIn"><a class="hover-underline-animation" style="text-decoration: none;">Sign Up</a></button>
+      <button mat-button class="nav-main__link sign-up" [routerLink]='["/profile"]' *ngIf="isLoggedIn"><a class="hover-underline-animation" style="text-decoration: none;">Profile</a></button>
+      <button mat-button *ngIf="isLoggedIn" class="nav-main__link logout" (click)="logout()"><a class="hover-underline-animation" style="text-decoration: none;">Log Out</a></button>
+    </ul>
+</nav>
+<nav class="nav-small">
+    <ul class="nav-main__list buttons">
+      <button mat-button class="nav-small__menu" [matMenuTriggerFor]="smallMenu"><mat-icon >menu</mat-icon></button>
+      <mat-menu #smallMenu="matMenu">
+        <button mat-menu-item [routerLink]='["/home"]'>Home</button>
+        <button mat-menu-item *ngIf="!isLoggedIn" [routerLink]='["/login"]'>Login</button>
+        <button mat-menu-item *ngIf="!isLoggedIn" [routerLink]='["/register"]'>Sign Up</button>
+        <button mat-menu-item [matMenuTriggerFor]="menu">General</button>
+        <button mat-menu-item *ngIf="isLoggedIn" (click)="logout()">Log Out</button>
+      </mat-menu>
+      
+      <span class="example-spacer"></span>
+      <div class="txt typewriter hover-underline-animation" style="text-align: center; ">
+        <h2>
+          <a href="https://github.com/Twotimefun" style="color: black; margin: auto; text-decoration: underline;">
+            &#60;Twotimefun&#62;
+          </a>
+        </h2>
+      </div>
+      <a href="https://github.com/Twotimefun" class="nav-main__link github px-5">
+        <img src="/assets/github-icon.svg" style="max-height: 40px;">
+      </a>
+    </ul>
+</nav>

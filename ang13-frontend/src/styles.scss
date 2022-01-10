@@ -1,0 +1,36 @@
+@use '@angular/material' as mat;
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@import '~@angular/material/theming';
+$general-typography: mat-typography-config(
+  $font-family: '"Spline Sans"',
+  $body-2:        mat-typography-level(14px, 24px, 600)  
+);
+@include mat-core($general-typography);
+
+html, body{ 
+    height: 100%;  
+    font-family: general-typography;
+}
+body { margin: 0; font-family: general-typography, "Helvetica Neue", sans-serif; }
+
+
+@include mat.core();
+
+
+$my-primary: mat.define-palette(mat.$indigo-palette, 500);
+$my-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The "warn" palette is optional and defaults to red if not specified.
+$my-warn: mat.define-palette(mat.$red-palette);
+
+$my-theme: mat.define-light-theme((
+ color: (
+   primary: $my-primary,
+   accent: $my-accent,
+   warn: $my-warn,
+ )
+));
+@include mat.all-component-themes($my-theme);

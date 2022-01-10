@@ -1,0 +1,92 @@
+<div class="container py-10" style="min-height: 80vh;">
+    <form
+    name="form"
+    (ngSubmit)="f.form.valid && OnSubmit()"
+    #f="ngForm"
+    novalidate
+    >
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="FirstName">First Name</label>
+                    <input
+                    type="text"
+                    class="form-control"
+                    disabled
+                    value={{user.FirstName}}
+                    />
+                </div>   
+                
+                <div class="form-group">
+                    <label for="LastName">Last Name</label>
+                    <input
+                    type="text"
+                    class="form-control"
+                    disabled
+                    value={{user.LastName}}
+                    />
+                </div>   
+            
+                <div class="form-group">
+                    <label for="AppointmentDate">Appointment Date</label>
+                    <input
+                    type="date"
+                    class="form-control"
+                    name="appointmentForm.AppointmentDate"
+                    required
+                    (ngModelChange)="GetSessions($event)"
+                    [(ngModel)]="appointmentForm.AppointmentDate"
+                    #appointmentdate="ngModel"
+                    />                
+                </div>  
+
+                <div class="form-group">
+                    <label for="appointmentForm.SessionId">Session</label>
+                    <select id="SessionId" class="form-control" required [(ngModel)]="appointmentForm.SessionId" name="appointmentForm.SessionId">
+                        <option disabled>Choose your session</option>
+                        <option *ngFor="let order of sessions; let i = index" [value]="sessions[i].id">
+                        {{sessions[i].description}}
+                        </option>
+                    </select>
+                </div> 
+            </div>
+    
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="PhoneName">Phone Number</label>
+                    <input
+                    type="text"
+                    class="form-control"
+                    disabled
+                    value={{user.PhoneNumber}}
+                    />
+                </div>   
+
+                <div class="form-group">
+                    <label for="Email">Email</label>
+                    <input
+                    type="text"
+                    class="form-control"
+                    disabled
+                    value={{user.Email}}
+                    />
+                </div>  
+
+                <div class="form-group">
+                    <label for="appointmentForm.AppointmentTypeId">Appointment Type</label>
+                    <select id="AppointmentTypeId" class="form-control" required [(ngModel)]="appointmentForm.AppointmentTypeId" name="appointmentForm.AppointmentTypeId">
+                        <option disabled>Choose appointment type</option>
+                        <option *ngFor="let order of appointmentTypes; let i = index" [value]="appointmentTypes[i].id">
+                        {{appointmentTypes[i].type}}
+                        </option>
+                    </select>
+                </div> 
+            </div>
+        </div> 
+        <br>    
+        <div class="form-group" style="display:flex; justify-content: center; align-items: center;">
+            
+            <button class="btn btn-primary btn-block">Submit</button>
+        </div>
+    </form>
+</div>
